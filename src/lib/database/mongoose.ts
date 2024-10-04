@@ -17,7 +17,7 @@ if (!cached) {
 }
 
 // to checek this code
-export const connectToDataBase = async () => {
+export const connectToDatabase = async () => {
   if (cached.conn) return cached.conn;
 
   if (!MONGODB_URL) throw new Error("Missing database URL");
@@ -28,4 +28,8 @@ export const connectToDataBase = async () => {
       dbName: "craftify-ai",
       bufferCommands: false,
     });
+
+  cached.conn = await cached.promise;
+
+  return cached.conn;
 };
