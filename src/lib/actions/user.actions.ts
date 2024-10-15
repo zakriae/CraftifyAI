@@ -52,7 +52,7 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
 }
 
 // DELETE
-export async function deleteUser(clerkId: string) {
+export const deleteUser = async (clerkId: string) => {
   try {
     await connectToDatabase();
 
@@ -71,7 +71,7 @@ export async function deleteUser(clerkId: string) {
   } catch (error) {
     handleError(error);
   }
-}
+};
 
 // USE CREDITS
 export async function updateCredits(userId: string, creditFee: number) {
